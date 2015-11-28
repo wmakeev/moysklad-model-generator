@@ -1,0 +1,28 @@
+{
+  "name": "moysklad-model-generator",
+  "version": "0.1.0",
+  "description": "Генератор модели данных сервиса МойСклад",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wmakeev/moysklad-model-generator.git"
+  },
+  "keywords": [
+    "moysklad",
+    "model",
+    "generator"
+  ],
+  "author": "Vitaliy V. Makeev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wmakeev/moysklad-model-generator/issues"
+  },
+  "homepage": "https://github.com/wmakeev/moysklad-model-generator#readme",
+  "dependencies": {
+    "lodash.assign": "^3.2.0",
+    "xmldom": "^0.1.19"
+  }
+}
