@@ -1,6 +1,6 @@
 {
   "name": "moysklad-model-generator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Генератор модели данных сервиса МойСклад",
   "main": "src/index.js",
   "scripts": {
