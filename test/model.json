@@ -1,0 +1,599 @@
+{
+  "elementInfos": [
+    {
+      "elementName": "barcode",
+      "typeInfo": "moysklad.barcode"
+    },
+    {
+      "elementName": "collection",
+      "typeInfo": "moysklad.collection"
+    },
+    {
+      "elementName": "error",
+      "typeInfo": "moysklad.error"
+    },
+    {
+      "elementName": "good",
+      "typeInfo": "moysklad.good"
+    },
+    {
+      "elementName": "goodFolder",
+      "typeInfo": "moysklad.goodFolder"
+    },
+    {
+      "elementName": "id",
+      "typeInfo": "String"
+    },
+    {
+      "elementName": "uuid",
+      "typeInfo": "String"
+    }
+  ],
+  "enums": {
+    "accessMode": {
+      "ALL": "ALL",
+      "NEIGHBOUR": "NEIGHBOUR",
+      "NONE": "NONE",
+      "PARENT": "PARENT",
+      "SELF": "SELF"
+    },
+    "barcodeType": {
+      "CODE128": "Code128",
+      "EAN13": "EAN13",
+      "EAN8": "EAN8"
+    }
+  },
+  "name": "moysklad",
+  "typeInfos": [
+    {
+      "baseTypeInfo": "moysklad.goodFolder",
+      "localName": "abstractGood",
+      "propertyInfos": [
+        {
+          "collection": true,
+          "name": "barcode",
+          "type": "element",
+          "typeInfo": "moysklad.barcode"
+        },
+        {
+          "name": "buyCurrencyUuid",
+          "type": "attribute",
+          "typeInfo": "String"
+        },
+        {
+          "name": "buyPrice",
+          "type": "attribute",
+          "typeInfo": "Double"
+        },
+        {
+          "name": "countryUuid",
+          "type": "attribute",
+          "typeInfo": "String"
+        },
+        {
+          "name": "minPrice",
+          "type": "attribute",
+          "typeInfo": "Double"
+        },
+        {
+          "name": "saleCurrencyUuid",
+          "type": "attribute",
+          "typeInfo": "String"
+        },
+        {
+          "name": "salePrice",
+          "type": "attribute",
+          "typeInfo": "Double"
+        },
+        {
+          "collection": true,
+          "elementName": "price",
+          "name": "salePrices",
+          "type": "element",
+          "typeInfo": "moysklad.price",
+          "wrapperElementName": "salePrices"
+        },
+        {
+          "name": "supplierUuid",
+          "type": "attribute",
+          "typeInfo": "String"
+        },
+        {
+          "name": "uomUuid",
+          "type": "attribute",
+          "typeInfo": "String"
+        }
+      ],
+      "type": "classInfo"
+    },
+    {
+      "localName": "accountEntity",
+      "propertyInfos": [
+        {
+          "name": "accountId",
+          "type": "element",
+          "typeInfo": "String"
+        },
+        {
+          "name": "accountUuid",
+          "type": "element",
+          "typeInfo": "String"
+        },
+        {
+          "name": "uuid",
+          "type": "element",
+          "typeInfo": "String"
+        }
+      ],
+      "type": "classInfo"
+    },
+    {
+      "baseTypeInfo": "moysklad.document",
+      "localName": "attachableDocument",
+      "propertyInfos": [],
+      "type": "classInfo"
+    },
+    {
+      "baseTypeInfo": "moysklad.attachableDocument",
+      "localName": "attachmentDocument",
+      "propertyInfos": [],
+      "type": "classInfo"
+    },
+    {
+      "baseTypeInfo": "moysklad.infoEntity",
+      "localName": "attributeValue",
+      "propertyInfos": [
+        {
+          "name": "agentValueUuid",
+          "type": "attribute",
+          "typeInfo": "String"
+        },
+        {
+          "name": "booleanValue",
+          "type": "attribute",
+          "typeInfo": "Boolean"
+        },
+        {
+          "name": "consignmentValueUuid",
+          "type": "attribute",
+          "typeInfo": "String"
+        },
+        {
+          "name": "contractValueUuid",
+          "type": "attribute",
+          "typeInfo": "String"
+        },
+        {
+          "name": "doubleValue",
+          "type": "attribute",
+          "typeInfo": "Double"
+        },
+        {
+          "name": "employeeValueUuid",
+          "type": "attribute",
+          "typeInfo": "String"
+        },
+        {
+          "name": "entityValueUuid",
+          "type": "attribute",
+          "typeInfo": "String"
+        },
+        {
+          "name": "file",
+          "type": "element",
+          "typeInfo": "moysklad.attachmentDocument"
+        },
+        {
+          "name": "goodValueUuid",
+          "type": "attribute",
+          "typeInfo": "String"
+        },
+        {
+          "name": "longValue",
+          "type": "attribute",
+          "typeInfo": "Long"
+        },
+        {
+          "name": "metadataUuid",
+          "type": "attribute",
+          "typeInfo": "String"
+        },
+        {
+          "name": "placeValueUuid",
+          "type": "attribute",
+          "typeInfo": "String"
+        },
+        {
+          "name": "projectValueUuid",
+          "type": "attribute",
+          "typeInfo": "String"
+        },
+        {
+          "name": "timeValue",
+          "type": "attribute",
+          "typeInfo": "DateTime"
+        },
+        {
+          "name": "valueString",
+          "type": "attribute",
+          "typeInfo": "String"
+        },
+        {
+          "name": "valueText",
+          "type": "attribute",
+          "typeInfo": "String"
+        }
+      ],
+      "type": "classInfo"
+    },
+    {
+      "baseTypeInfo": "moysklad.entity",
+      "localName": "barcode",
+      "propertyInfos": [
+        {
+          "name": "barcode",
+          "type": "attribute",
+          "typeInfo": "String"
+        },
+        {
+          "name": "barcodeType",
+          "type": "attribute",
+          "typeInfo": "String"
+        }
+      ],
+      "type": "classInfo"
+    },
+    {
+      "baseTypeInfo": "moysklad.legendEntity",
+      "localName": "classifier",
+      "propertyInfos": [],
+      "type": "classInfo"
+    },
+    {
+      "baseTypeInfo": "moysklad.collectionContainer",
+      "localName": "collection",
+      "propertyInfos": [
+        {
+          "name": "count",
+          "type": "attribute",
+          "typeInfo": "Int"
+        },
+        {
+          "name": "start",
+          "type": "attribute",
+          "typeInfo": "Int"
+        },
+        {
+          "name": "total",
+          "type": "attribute",
+          "typeInfo": "Int"
+        }
+      ],
+      "type": "classInfo"
+    },
+    {
+      "localName": "collectionContainer",
+      "propertyInfos": [
+        {
+          "collection": true,
+          "name": "items",
+          "type": "anyElement"
+        }
+      ],
+      "type": "classInfo"
+    },
+    {
+      "baseTypeInfo": "moysklad.legendEntity",
+      "localName": "document",
+      "propertyInfos": [
+        {
+          "name": "contents",
+          "type": "element",
+          "typeInfo": "String"
+        },
+        {
+          "name": "created",
+          "type": "attribute",
+          "typeInfo": "DateTime"
+        },
+        {
+          "name": "filename",
+          "type": "attribute",
+          "typeInfo": "String"
+        },
+        {
+          "name": "miniatureUuid",
+          "type": "attribute",
+          "typeInfo": "String"
+        }
+      ],
+      "type": "classInfo"
+    },
+    {
+      "baseTypeInfo": "moysklad.accountEntity",
+      "localName": "entity",
+      "propertyInfos": [
+        {
+          "name": "changeMode",
+          "type": "attribute",
+          "typeInfo": "String"
+        },
+        {
+          "name": "groupUuid",
+          "type": "element",
+          "typeInfo": "String"
+        },
+        {
+          "name": "ownerUid",
+          "type": "element",
+          "typeInfo": "String"
+        },
+        {
+          "name": "readMode",
+          "type": "attribute",
+          "typeInfo": "String"
+        },
+        {
+          "name": "shared",
+          "type": "element",
+          "typeInfo": "Boolean"
+        }
+      ],
+      "type": "classInfo"
+    },
+    {
+      "localName": "error",
+      "propertyInfos": [
+        {
+          "name": "message",
+          "type": "element",
+          "typeInfo": "String"
+        },
+        {
+          "name": "moment",
+          "type": "element",
+          "typeInfo": "String"
+        },
+        {
+          "name": "stack",
+          "type": "element",
+          "typeInfo": "String"
+        },
+        {
+          "name": "uid",
+          "type": "element",
+          "typeInfo": "String"
+        }
+      ],
+      "type": "classInfo"
+    },
+    {
+      "baseTypeInfo": "moysklad.abstractGood",
+      "localName": "good",
+      "propertyInfos": [
+        {
+          "collection": true,
+          "elementName": "image",
+          "name": "images",
+          "type": "element",
+          "typeInfo": "moysklad.goodImage",
+          "wrapperElementName": "images"
+        },
+        {
+          "name": "isSerialTrackable",
+          "type": "attribute",
+          "typeInfo": "Boolean"
+        },
+        {
+          "name": "minimumBalance",
+          "type": "attribute",
+          "typeInfo": "Double"
+        },
+        {
+          "collection": true,
+          "name": "pack",
+          "type": "element",
+          "typeInfo": "moysklad.goodPack"
+        },
+        {
+          "collection": true,
+          "elementName": "preference",
+          "name": "preferences",
+          "type": "element",
+          "typeInfo": "moysklad.goodSlotPreference",
+          "wrapperElementName": "preferences"
+        },
+        {
+          "name": "soldByWeight",
+          "type": "attribute",
+          "typeInfo": "Boolean"
+        },
+        {
+          "name": "volume",
+          "type": "attribute",
+          "typeInfo": "Double"
+        },
+        {
+          "name": "weight",
+          "type": "attribute",
+          "typeInfo": "Double"
+        }
+      ],
+      "type": "classInfo"
+    },
+    {
+      "baseTypeInfo": "moysklad.attributeValue",
+      "localName": "goodAttributeValue",
+      "propertyInfos": [
+        {
+          "name": "goodUuid",
+          "type": "attribute",
+          "typeInfo": "String"
+        }
+      ],
+      "type": "classInfo"
+    },
+    {
+      "baseTypeInfo": "moysklad.classifier",
+      "localName": "goodFolder",
+      "propertyInfos": [
+        {
+          "name": "archived",
+          "type": "attribute",
+          "typeInfo": "Boolean"
+        },
+        {
+          "name": "atolId",
+          "type": "attribute",
+          "typeInfo": "Int"
+        },
+        {
+          "collection": true,
+          "name": "attribute",
+          "type": "element",
+          "typeInfo": "moysklad.goodAttributeValue"
+        },
+        {
+          "name": "parentUuid",
+          "type": "attribute",
+          "typeInfo": "String"
+        },
+        {
+          "name": "productCode",
+          "type": "attribute",
+          "typeInfo": "String"
+        },
+        {
+          "name": "vat",
+          "type": "attribute",
+          "typeInfo": "Long"
+        }
+      ],
+      "type": "classInfo"
+    },
+    {
+      "baseTypeInfo": "moysklad.attachableDocument",
+      "localName": "goodImage",
+      "propertyInfos": [
+        {
+          "name": "tinyUuid",
+          "type": "attribute",
+          "typeInfo": "String"
+        }
+      ],
+      "type": "classInfo"
+    },
+    {
+      "baseTypeInfo": "moysklad.entity",
+      "localName": "goodPack",
+      "propertyInfos": [
+        {
+          "name": "quantity",
+          "type": "attribute",
+          "typeInfo": "Double"
+        },
+        {
+          "name": "uomUuid",
+          "type": "attribute",
+          "typeInfo": "String"
+        }
+      ],
+      "type": "classInfo"
+    },
+    {
+      "baseTypeInfo": "moysklad.entity",
+      "localName": "goodSlotPreference",
+      "propertyInfos": [
+        {
+          "name": "slotUuid",
+          "type": "attribute",
+          "typeInfo": "String"
+        }
+      ],
+      "type": "classInfo"
+    },
+    {
+      "baseTypeInfo": "moysklad.entity",
+      "localName": "infoEntity",
+      "propertyInfos": [
+        {
+          "name": "deleted",
+          "type": "element",
+          "typeInfo": "DateTime"
+        },
+        {
+          "name": "updated",
+          "type": "attribute",
+          "typeInfo": "DateTime"
+        },
+        {
+          "name": "updatedBy",
+          "type": "attribute",
+          "typeInfo": "String"
+        }
+      ],
+      "type": "classInfo"
+    },
+    {
+      "baseTypeInfo": "moysklad.infoEntity",
+      "localName": "legendEntity",
+      "propertyInfos": [
+        {
+          "name": "code",
+          "type": "element",
+          "typeInfo": "String"
+        },
+        {
+          "name": "description",
+          "type": "element",
+          "typeInfo": "String"
+        },
+        {
+          "name": "externalcode",
+          "type": "element",
+          "typeInfo": "String"
+        },
+        {
+          "name": "name",
+          "type": "attribute",
+          "typeInfo": "String"
+        }
+      ],
+      "type": "classInfo"
+    },
+    {
+      "baseTypeInfo": "moysklad.entity",
+      "localName": "price",
+      "propertyInfos": [
+        {
+          "name": "currencyUuid",
+          "type": "attribute",
+          "typeInfo": "String"
+        },
+        {
+          "name": "priceTypeUuid",
+          "type": "attribute",
+          "typeInfo": "String"
+        },
+        {
+          "name": "value",
+          "type": "attribute",
+          "typeInfo": "Double"
+        }
+      ],
+      "type": "classInfo"
+    },
+    {
+      "localName": "prices",
+      "propertyInfos": [
+        {
+          "collection": true,
+          "name": "price",
+          "type": "element",
+          "typeInfo": "moysklad.price"
+        }
+      ],
+      "type": "classInfo"
+    }
+  ]
+}
