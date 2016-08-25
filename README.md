@@ -1,12 +1,19 @@
 moysklad-model-generator
 ========================
 
-Генерирует объектную модель МойСклад
+[![npm](https://img.shields.io/npm/v/moysklad-model-generator.svg?maxAge=2592000&style=flat-square)](https://www.npmjs.com/package/moysklad-model-generator)
+[![Travis](https://img.shields.io/travis/wmakeev/moysklad-model-generator.svg?maxAge=2592000&style=flat-square)](https://travis-ci.org/wmakeev/moysklad-model-generator)
+[![Gemnasium](https://img.shields.io/gemnasium/wmakeev/moysklad-model-generator.svg?maxAge=2592000&style=flat-square)](https://gemnasium.com/github.com/wmakeev/moysklad-model-generator)
 
-# Описание
+> Генерирует объектную модель МойСклад
 
-Генерируемая модель изначально предназначена для описания преобразований сущностей возращаемых REST API сервиса МойСклад из XML в JSON и обратно.
+Генерация модели для сервиса МойСклад предназначенной для описания преобразований сущностей возращаемых REST API сервиса МойСклад из XML в JSON и обратно.
 
+# Установка
+
+```bash
+$ npm install moysklad-model-generator
+```
 
 # Использование
 
@@ -19,9 +26,9 @@ var xsd = fs.readFileSync('/path/to/MOYsklad.xsd', 'utf8')
 var modelGenerator = new ModelGenerator()
 var model = modelGenerator.generateModel(xsd)
 
-console.log(model)
+console.log(JSON.stringify(model, null, 2))
 ```
 
-# Планы развития
+## License
 
-- покрыть тестами
+MIT © Vitaliy V. Makeev.
