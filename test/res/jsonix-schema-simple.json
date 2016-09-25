@@ -22,11 +22,11 @@
     },
     {
       "elementName": "id",
-      "typeInfo": "String"
+      "typeInfo": "ID"
     },
     {
       "elementName": "uuid",
-      "typeInfo": "String"
+      "typeInfo": "ID"
     }
   ],
   "enums": {
@@ -58,7 +58,7 @@
         {
           "name": "buyCurrencyUuid",
           "type": "attribute",
-          "typeInfo": "String"
+          "typeInfo": "IDREF"
         },
         {
           "name": "buyPrice",
@@ -68,7 +68,7 @@
         {
           "name": "countryUuid",
           "type": "attribute",
-          "typeInfo": "String"
+          "typeInfo": "IDREF"
         },
         {
           "name": "minPrice",
@@ -78,7 +78,7 @@
         {
           "name": "saleCurrencyUuid",
           "type": "attribute",
-          "typeInfo": "String"
+          "typeInfo": "IDREF"
         },
         {
           "name": "salePrice",
@@ -96,12 +96,12 @@
         {
           "name": "supplierUuid",
           "type": "attribute",
-          "typeInfo": "String"
+          "typeInfo": "IDREF"
         },
         {
           "name": "uomUuid",
           "type": "attribute",
-          "typeInfo": "String"
+          "typeInfo": "IDREF"
         }
       ],
       "type": "classInfo"
@@ -122,7 +122,7 @@
         {
           "name": "uuid",
           "type": "element",
-          "typeInfo": "String"
+          "typeInfo": "ID"
         }
       ],
       "type": "classInfo"
@@ -146,7 +146,7 @@
         {
           "name": "agentValueUuid",
           "type": "attribute",
-          "typeInfo": "String"
+          "typeInfo": "IDREF"
         },
         {
           "name": "booleanValue",
@@ -156,12 +156,12 @@
         {
           "name": "consignmentValueUuid",
           "type": "attribute",
-          "typeInfo": "String"
+          "typeInfo": "IDREF"
         },
         {
           "name": "contractValueUuid",
           "type": "attribute",
-          "typeInfo": "String"
+          "typeInfo": "IDREF"
         },
         {
           "name": "doubleValue",
@@ -171,12 +171,12 @@
         {
           "name": "employeeValueUuid",
           "type": "attribute",
-          "typeInfo": "String"
+          "typeInfo": "IDREF"
         },
         {
           "name": "entityValueUuid",
           "type": "attribute",
-          "typeInfo": "String"
+          "typeInfo": "IDREF"
         },
         {
           "name": "file",
@@ -186,7 +186,7 @@
         {
           "name": "goodValueUuid",
           "type": "attribute",
-          "typeInfo": "String"
+          "typeInfo": "IDREF"
         },
         {
           "name": "longValue",
@@ -196,17 +196,17 @@
         {
           "name": "metadataUuid",
           "type": "attribute",
-          "typeInfo": "String"
+          "typeInfo": "IDREF"
         },
         {
           "name": "placeValueUuid",
           "type": "attribute",
-          "typeInfo": "String"
+          "typeInfo": "IDREF"
         },
         {
           "name": "projectValueUuid",
           "type": "attribute",
-          "typeInfo": "String"
+          "typeInfo": "IDREF"
         },
         {
           "name": "timeValue",
@@ -289,7 +289,7 @@
         {
           "name": "contents",
           "type": "element",
-          "typeInfo": "String"
+          "typeInfo": "Base64Binary"
         },
         {
           "name": "created",
@@ -304,7 +304,7 @@
         {
           "name": "miniatureUuid",
           "type": "attribute",
-          "typeInfo": "String"
+          "typeInfo": "IDREF"
         }
       ],
       "type": "classInfo"
@@ -428,7 +428,7 @@
         {
           "name": "goodUuid",
           "type": "attribute",
-          "typeInfo": "String"
+          "typeInfo": "IDREF"
         }
       ],
       "type": "classInfo"
@@ -456,7 +456,7 @@
         {
           "name": "parentUuid",
           "type": "attribute",
-          "typeInfo": "String"
+          "typeInfo": "IDREF"
         },
         {
           "name": "productCode",
@@ -478,7 +478,7 @@
         {
           "name": "tinyUuid",
           "type": "attribute",
-          "typeInfo": "String"
+          "typeInfo": "IDREF"
         }
       ],
       "type": "classInfo"
@@ -495,7 +495,7 @@
         {
           "name": "uomUuid",
           "type": "attribute",
-          "typeInfo": "String"
+          "typeInfo": "IDREF"
         }
       ],
       "type": "classInfo"
@@ -507,7 +507,7 @@
         {
           "name": "slotUuid",
           "type": "attribute",
-          "typeInfo": "String"
+          "typeInfo": "IDREF"
         }
       ],
       "type": "classInfo"
@@ -568,12 +568,12 @@
         {
           "name": "currencyUuid",
           "type": "attribute",
-          "typeInfo": "String"
+          "typeInfo": "IDREF"
         },
         {
           "name": "priceTypeUuid",
           "type": "attribute",
-          "typeInfo": "String"
+          "typeInfo": "IDREF"
         },
         {
           "name": "value",

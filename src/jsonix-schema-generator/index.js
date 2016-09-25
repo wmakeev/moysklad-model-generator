@@ -4,35 +4,36 @@ var parseXsd = require('./parse-xsd')
 var getSimpleTypeName = require('./get-simple-type-name')
 var patches = require('./patches')
 
-function ModelGenerator () {
-  this.model = null
+function JsonixSchemaGenerator () {
+  this.schema = null
 }
 
 /**
  * Генерирует модель данных
  *
  * @param {string} xsd XSD-схема МойСклад
- * @returns {Object}
+ * @returns {Object} Jsonix schema
  */
-ModelGenerator.prototype.generateModel = function generateModel (xsd) {
+JsonixSchemaGenerator.prototype.generateSchema = function generateSchema (xsd) {
   var xsdObj = parseXsd(xsd)
 
-  // jsonix model
-  this.model = {
+  // jsonix schema
+  this.schema = {
     name: 'moysklad'
   }
 
   // xs:simpleType
-  this.model.enums = {};
+  this.schema.enums = {}
   xsdObj['xs:simpleType'].forEach(this._addSimpleType, this)
 
   // xs:element
-  this.model.elementInfos = []
+  this.schema.elementInfos = []
   this._addGlobalElements(xsdObj['xs:element'])
 
   // xs:complexType
-  this.model.typeInfos = []
+  this.schema.typeInfos = []
   xsdObj['xs:complexType'].forEach(function (complexType) {
+    var extension
     var typeInfo = {
       type: 'classInfo',
       localName: complexType.$attribute.name,
@@ -41,12 +42,10 @@ ModelGenerator.prototype.generateModel = function generateModel (xsd) {
 
     // xs:complexContent
     if (complexType['xs:complexContent']) {
-
       // xs:extension
       if (complexType['xs:complexContent']['xs:extension']) {
-        var extension = complexType['xs:complexContent']['xs:extension']
+        extension = complexType['xs:complexContent']['xs:extension']
         if (extension.$attribute.base) {
-
           // Inheritance
           typeInfo.baseTypeInfo = this._getTypeInfo(extension.$attribute.base)
 
@@ -64,16 +63,14 @@ ModelGenerator.prototype.generateModel = function generateModel (xsd) {
           if (extension['xs:sequence'] && extension['xs:sequence'].$count > 0) {
             this._addElements(typeInfo, extension['xs:sequence']['xs:element'])
           }
-
         } else {
-          throw new Error('"base" attribute in xs:extension not found');
+          throw new Error('"base" attribute in xs:extension not found')
         }
       }
     }
 
     // xs:sequence
     if (complexType['xs:sequence']) {
-
       // xs:element
       if (complexType['xs:sequence']['xs:element']) {
         this._addElements(typeInfo, complexType['xs:sequence']['xs:element'])
@@ -90,16 +87,16 @@ ModelGenerator.prototype.generateModel = function generateModel (xsd) {
       this._addAttributes(typeInfo, complexType['xs:attribute'])
     }
 
-    this.model.typeInfos.push(typeInfo);
+    this.schema.typeInfos.push(typeInfo)
   }, this)
 
   return patches.reduce(function (res, patch) {
     return patch(res)
-  }, this.model)
+  }, this.schema)
 }
 
 // Enums
-ModelGenerator.prototype._addSimpleType = function addSimpleType (elementXsd) {
+JsonixSchemaGenerator.prototype._addSimpleType = function addSimpleType (elementXsd) {
   if (!elementXsd) { return }
   var enumValues = {}
   var enumerations = elementXsd['xs:restriction']['xs:enumeration']
@@ -109,14 +106,14 @@ ModelGenerator.prototype._addSimpleType = function addSimpleType (elementXsd) {
         enumerationItem.$attribute.value
     })
   }
-  this.model.enums[elementXsd.$attribute.name] = enumValues
+  this.schema.enums[elementXsd.$attribute.name] = enumValues
 }
 
 // Elements (global)
-ModelGenerator.prototype._addGlobalElements = function addGlobalElements (elements) {
+JsonixSchemaGenerator.prototype._addGlobalElements = function addGlobalElements (elements) {
   if (!elements) { return }
   elements.forEach(function (element) {
-    this.model.elementInfos.push({
+    this.schema.elementInfos.push({
       elementName: element.$attribute.name,
       typeInfo: this._getTypeInfo(element.$attribute.type)
     })
@@ -124,22 +121,24 @@ ModelGenerator.prototype._addGlobalElements = function addGlobalElements (elemen
 }
 
 // Attributes
-ModelGenerator.prototype._addAttributes = function addAttributes (typeInfo, attributesXsd) {
+JsonixSchemaGenerator.prototype._addAttributes = function addAttributes (typeInfo, attributesXsd) {
   attributesXsd = attributesXsd instanceof Array ? attributesXsd : [attributesXsd]
   attributesXsd.forEach(function (attributeItem) {
     typeInfo.propertyInfos.push({
       type: 'attribute',
       name: attributeItem.$attribute.name,
       typeInfo: this._getTypeInfo(attributeItem.$attribute.type)
-    });
-  }, this);
+    })
+  }, this)
 }
 
 // Elements
-ModelGenerator.prototype._addElements = function addElements (typeInfo, elementsXsd) {
-  //TODO Будет ли корректно обрабатываться name вместо elementName
+JsonixSchemaGenerator.prototype._addElements = function addElements (typeInfo, elementsXsd) {
+  // TODO Будет ли корректно обрабатываться name вместо elementName
   elementsXsd = elementsXsd instanceof Array ? elementsXsd : [elementsXsd]
   elementsXsd.forEach(function (elementXsd) {
+    var elComplexType
+    var elementName
     var propertyInfo = {
       type: 'element'
     }
@@ -150,14 +149,14 @@ ModelGenerator.prototype._addElements = function addElements (typeInfo, elements
     propertyInfo.name = el.name || el.type || el.ref
 
     if (el.maxOccurs === 'unbounded') {
-      propertyInfo.collection = true;
+      propertyInfo.collection = true
     }
 
     // элемент коллекция (с вложенными элементами), напр "slots"
     if (elementXsd['xs:complexType']) {
-      var elComplexType = elementXsd['xs:complexType']['xs:sequence']['xs:element'].$attribute
-      var elementName = elComplexType.name || elComplexType.ref
-      if (propertyInfo.name != elementName) {
+      elComplexType = elementXsd['xs:complexType']['xs:sequence']['xs:element'].$attribute
+      elementName = elComplexType.name || elComplexType.ref
+      if (propertyInfo.name !== elementName) {
         propertyInfo.elementName = elementName
       }
       propertyInfo.collection = true
@@ -172,12 +171,12 @@ ModelGenerator.prototype._addElements = function addElements (typeInfo, elements
 }
 
 // AnyElement
-ModelGenerator.prototype._addAnyElement = function addAnyElement (typeInfo, elementXsd) {
+JsonixSchemaGenerator.prototype._addAnyElement = function addAnyElement (typeInfo, elementXsd) {
   var propertyInfo = {
     type: 'anyElement'
   }
 
-  var el = elementXsd.$attribute;
+  var el = elementXsd.$attribute
 
   if (el.namespace !== '##other') {
     throw new Error('Not expected namespace [' + el.namespace + ']')
@@ -196,27 +195,26 @@ ModelGenerator.prototype._addAnyElement = function addAnyElement (typeInfo, elem
     propertyInfo.name = 'item'
   }
 
-  //addPropInfo('mixed', false);
+  // addPropInfo('mixed', false);
 
-  typeInfo.propertyInfos.push(propertyInfo);
+  typeInfo.propertyInfos.push(propertyInfo)
 }
 
-ModelGenerator.prototype._getTypeInfo = function getTypeInfo (typeName) {
+JsonixSchemaGenerator.prototype._getTypeInfo = function getTypeInfo (typeName) {
   if (!typeName) { return }
 
   // base type
-  if (typeName.substring(0, 3) == 'xs:') {
+  if (typeName.substring(0, 3) === 'xs:') {
     return getSimpleTypeName(typeName)
   }
 
   // enum
-  if (typeName in this.model.enums) {
+  if (typeName in this.schema.enums) {
     return 'String'
   }
 
   // moysklad
-  return this.model.name + '.' + typeName
+  return this.schema.name + '.' + typeName
 }
 
-
-module.exports = ModelGenerator
+module.exports = JsonixSchemaGenerator

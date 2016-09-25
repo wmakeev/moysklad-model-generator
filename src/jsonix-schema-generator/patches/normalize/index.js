@@ -23,8 +23,8 @@ function replacer (key, value) {
   }
 }
 
-module.exports = function normalize (model) {
-  return JSON.parse(stringify(model, {
+module.exports = function normalize (schema) {
+  return JSON.parse(stringify(schema, {
     replacer: replacer
   }))
 }

@@ -1,0 +1,258 @@
+{
+    "abstractConnectorSetting": {
+        "organizationUuid": null
+    },
+    "abstractDemand": {
+        "factureUuid": "factureOut",
+        "invoicesOutUuid": "invoicesOut",
+        "paymentsUuid": {
+            "collection": true,
+            "type": "financeIn"
+        }
+    },
+    "abstractGood": {
+        "buyCurrencyUuid": "currency",
+        "saleCurrencyUuid": "currency"
+    },
+    "abstractSalesReturn": {
+        "lossesUuid": {
+            "collection": true,
+            "type": "loss"
+        },
+        "paymentsUuid": {
+            "collection": true,
+            "type": "financeOut"
+        }
+    },
+    "amiroCustomAttributeInfo": {
+        "settingsUuid": null
+    },
+    "attributeMetadata": {
+        "dictionaryMetadataUuid": [
+            "embeddedEntityMetadata",
+            "customEntityMetadata"
+        ],
+        
+        "entityMetadataUuid": "embeddedEntityMetadata"
+    },
+    "attributeValue": {
+        "agentValueUuid": "agent",
+        "consignmentValueUuid": "consignment",
+        "contractValueUuid": "contract",
+        "employeeValueUuid": "employee",
+        "entityValueUuid": "customEntity",
+        "goodValueUuid": "good",
+        "metadataUuid": "attributeMetadata",
+        "placeValueUuid": "warehouse",
+        "projectValueUuid": "project"
+    },
+    "commissionReportIn": {
+        "paymentsUuid": {
+            "collection": true,
+            "type": "financeIn"
+        }
+    },
+    "commissionReportOut": {
+        "paymentsUuid": {
+            "collection": true,
+            "type": "financeOut"
+        }
+    },
+    "contract": {
+        "ownCompanyAccountUuid": "agentAccount",
+        "ownCompanyUuid": "myCompany"
+    },
+    "customEntity": {
+        "entityMetadataUuid": "customEntityMetadata"
+    },
+    "customerOrder": {
+        "demandsUuid": {
+            "collection": true,
+            "type": "demand"
+        },
+        "invoicesOutUuid": {
+            "collection": true,
+            "type": "invoiceOut"
+        },
+        "paymentsUuid": {
+            "collection": true,
+            "type": "financeIn"
+        },
+        "purchaseOrdersUuid": {
+            "collection": true,
+            "type": "purchaseOrder"
+        }
+    },
+    "demand": {
+        "salesReturnsUuid": {
+            "collection": true,
+            "type": "salesReturn"
+        }
+    },
+    "demandExtension": {
+        "carrierUuid": "agent"
+    },
+    "document": {
+        "miniatureUuid": null
+    },
+    "factureIn": {
+        "paymentsUuid": {
+            "collection": true,
+            "type": "financeOut"
+        },
+        "suppliesUuid": {
+            "collection": true,
+            "type": "supply"
+        }
+    },
+    "factureOut": {
+        "demandsUuid": {
+            "collection": true,
+            "type": "demand"
+        },
+        "paymentsUuid": {
+            "collection": true,
+            "type": "financeIn"
+        },
+        "returnsUuid": {
+            "collection": true,
+            "type": "return"
+        }
+    },
+    "financeIn": {
+        "demandsUuid": {
+            "collection": true,
+            "type": "demand"
+        }
+    },
+    "goodFolder": {
+        "parentUuid": "goodFolder"
+    },
+    "goodImage": {
+        "tinyUuid": "tinyImage"
+    },
+    "internalOrder": {
+        "demandsUuid": {
+            "collection": true,
+            "type": "demand"
+        },
+        "purchaseOrdersUuid": {
+            "collection": true,
+            "type": "purchaseOrder"
+        }
+    },
+    "inventory": {
+        "entersUuid": {
+            "collection": true,
+            "type": "enter"
+        },
+        "lossesUuid": {
+            "collection": true,
+            "type": "loss"
+        }
+    },
+    "invoiceIn": {
+        "financesOutUuid": {
+            "collection": true,
+            "type": "financeOut"
+        },
+        "suppliesUuid": {
+            "collection": true,
+            "type": "supply"
+        }
+    },
+    "invoiceOut": {
+        "demandsUuid": {
+            "collection": true,
+            "type": "demand"
+        },
+        "paymentsUuid": {
+            "collection": true,
+            "type": "financeIn"
+        }
+    },
+    "movePosition": {
+        "sourceSlotUuid": "slot"
+    },
+    "operation": {
+        "sourceAccountUuid": "agentAccount",
+        "sourceAgentUuid": "agent",
+        "sourceStoreUuid": "warehouse",
+        "targetAccountUuid": "agentAccount",
+        "targetAgentUuid": "agent",
+        "targetStoreUuid": "warehouse"
+    },
+    "operationConnectorSetting": {
+        "orderplaceUuid": "warehouse"
+    },
+    "operationExtension": {
+        "consigneeUuid": "agent"
+    },
+    "placeAttributeValue": {
+        "placeUuid": "warehouse"
+    },
+    "processing": {
+        "planUuid": "processingPlan"
+    },
+    "processingOrder": {
+        "planUuid": "processingPlan"
+    },
+    "processingPlanFolder": {
+        "parentUuid": "processingPlanFolder"
+    },
+    "processingPlanItem": {
+        "planUuid": "processingPlan"
+    },
+    "purchaseOrder": {
+        "customerOrdersUuid": {
+            "collection": true,
+            "type": "customerOrder"
+        },
+        "invoicesUuid": {
+            "collection": true,
+            "type": "invoiceIn"
+        },
+        "paymentsUuid": {
+            "collection": true,
+            "type": "financeOut"
+        },
+        "suppliesUuid": {
+            "collection": true,
+            "type": "supply"
+        }
+    },
+    "purchaseReturn": {
+        "paymentsUuid": {
+            "collection": true,
+            "type": "financeIn"
+        }
+    },
+    "retailDemand": {
+        "salesReturnsUuid": {
+            "collection": true,
+            "type": "salesReturn"
+        }
+    },
+    "retailStore": {
+        "acquireAccountUuid": "agentAccount",
+        "acquireUuid": "agent",
+        "myCompanyAccountUuid": "agentAccount"
+    },
+    "supply": {
+        "invoicesInUuid": {
+            "collection": true,
+            "type": "invoiceIn"
+        },
+        "paymentsUuid": {
+            "collection": true,
+            "type": "financeOut"
+        },
+        "purchaseReturnsUuid": {
+            "collection": true,
+            "type": "purchaseReturn"
+        }
+    },
+    "warehouse": {
+        "parentUuid": "warehouse"
+    }
+}

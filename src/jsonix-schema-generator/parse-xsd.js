@@ -1,5 +1,5 @@
 var DOMParser = require('xmldom').DOMParser
-var XmlToJson = require('../vendor/xml-to-json')
+var XmlToJson = require('../../vendor/xml-to-json')
 
 module.exports = function parseXsd (xsdXml) {
   var parser = new DOMParser()

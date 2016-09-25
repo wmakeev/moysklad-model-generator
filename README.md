@@ -19,14 +19,14 @@ $ npm install moysklad-model-generator
 
 ```js
 var fs = require('fs')
-var ModelGenerator = require('moysklad-model-generator')
+var JsonixSchemaGenerator = require('moysklad-model-generator').JsonixSchemaGenerator
 
 var xsd = fs.readFileSync('/path/to/MOYsklad.xsd', 'utf8')
 
-var modelGenerator = new ModelGenerator()
-var model = modelGenerator.generateModel(xsd)
+var jsonixSchemaGenerator = new JsonixSchemaGenerator()
+var jsonixSchema = jsonixSchemaGenerator.generateSchema(xsd)
 
-console.log(JSON.stringify(model, null, 2))
+console.log(JSON.stringify(jsonixSchema, null, 2))
 ```
 
 ## License
