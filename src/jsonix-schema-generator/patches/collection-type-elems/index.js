@@ -29,7 +29,7 @@ module.exports = function collectionTypeElemsPatch (schema) {
             typeInfo: propInfoTypeElem.typeInfo
           })
 
-          console.log('fix:',
+          console.log('Schema patch applyed:',
             typeInfo.localName + '.' + propertyInfo.name + ' <- ' +
             propInfoType.localName + '.' + propInfoTypeElem.name)
         }

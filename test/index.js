@@ -2,9 +2,9 @@ var fs = require('fs')
 var path = require('path')
 var test = require('tape')
 
-var MoyskladSchema = require('..')
-var JsonixSchemaGenerator = MoyskladSchema.JsonixSchemaGenerator
-var getIdrefTypes = MoyskladSchema.getIdrefTypes
+var MoyskladModel = require('..')
+var JsonixSchemaGenerator = MoyskladModel.JsonixSchemaGenerator
+var getIdrefTypes = MoyskladModel.getIdrefTypes
 
 var xsd = fs.readFileSync(path.join(__dirname, 'res', 'MOYsklad.xsd'), 'utf8')
 var testJsonixSchema = require('./res/jsonix-schema')

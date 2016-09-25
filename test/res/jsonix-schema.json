@@ -265,16 +265,16 @@
       "typeInfo": "moysklad.reportTemplatesMetadata"
     },
     {
-      "elementName": "retailCashIn",
-      "typeInfo": "moysklad.retailCashIn"
-    },
-    {
-      "elementName": "retailCashOut",
-      "typeInfo": "moysklad.retailCashOut"
-    },
-    {
       "elementName": "retailDemand",
       "typeInfo": "moysklad.retailDemand"
+    },
+    {
+      "elementName": "retailDrawerCashIn",
+      "typeInfo": "moysklad.retailDrawerCashIn"
+    },
+    {
+      "elementName": "retailDrawerCashOut",
+      "typeInfo": "moysklad.retailDrawerCashOut"
     },
     {
       "elementName": "retailSalesReturn",
@@ -497,6 +497,14 @@
         },
         {
           "collection": true,
+          "elementName": "salesReturnRef",
+          "name": "salesReturnsUuid",
+          "type": "element",
+          "typeInfo": "IDREF",
+          "wrapperElementName": "salesReturnsUuid"
+        },
+        {
+          "collection": true,
           "name": "shipmentOut",
           "type": "element",
           "typeInfo": "moysklad.shipmentOut"
@@ -569,6 +577,11 @@
       "baseTypeInfo": "moysklad.comingInOperation",
       "localName": "abstractSalesReturn",
       "propertyInfos": [
+        {
+          "name": "demandUuid",
+          "type": "attribute",
+          "typeInfo": "IDREF"
+        },
         {
           "collection": true,
           "elementName": "lossRef",
@@ -1063,12 +1076,32 @@
           "typeInfo": "IDREF"
         },
         {
+          "name": "printCashin",
+          "type": "attribute",
+          "typeInfo": "Boolean"
+        },
+        {
+          "name": "printCashout",
+          "type": "attribute",
+          "typeInfo": "Boolean"
+        },
+        {
           "name": "printCheck",
           "type": "attribute",
           "typeInfo": "Boolean"
         },
         {
           "name": "printCheckFR",
+          "type": "attribute",
+          "typeInfo": "Boolean"
+        },
+        {
+          "name": "printReturnCheck",
+          "type": "attribute",
+          "typeInfo": "Boolean"
+        },
+        {
+          "name": "printZ",
           "type": "attribute",
           "typeInfo": "Boolean"
         },
@@ -1704,14 +1737,6 @@
           "name": "overheadDistribution",
           "type": "attribute",
           "typeInfo": "String"
-        },
-        {
-          "collection": true,
-          "elementName": "salesReturnRef",
-          "name": "salesReturnsUuid",
-          "type": "element",
-          "typeInfo": "IDREF",
-          "wrapperElementName": "salesReturnsUuid"
         }
       ],
       "type": "classInfo"
@@ -2435,20 +2460,6 @@
           "type": "element",
           "typeInfo": "moysklad.reportTemplatesMetadata",
           "wrapperElementName": "reportTemplatesMetadata"
-        },
-        {
-          "collection": true,
-          "name": "retailCashIn",
-          "type": "element",
-          "typeInfo": "moysklad.retailCashIn",
-          "wrapperElementName": "retailCashIn"
-        },
-        {
-          "collection": true,
-          "name": "retailCashOut",
-          "type": "element",
-          "typeInfo": "moysklad.retailCashOut",
-          "wrapperElementName": "retailCashOut"
         },
         {
           "collection": true,
@@ -3737,11 +3748,6 @@
       "localName": "printedDocument",
       "propertyInfos": [
         {
-          "name": "emailedDate",
-          "type": "attribute",
-          "typeInfo": "DateTime"
-        },
-        {
           "name": "publicId",
           "type": "attribute",
           "typeInfo": "String"
@@ -4097,18 +4103,6 @@
       "type": "classInfo"
     },
     {
-      "baseTypeInfo": "moysklad.abstractCashIn",
-      "localName": "retailCashIn",
-      "propertyInfos": [],
-      "type": "classInfo"
-    },
-    {
-      "baseTypeInfo": "moysklad.abstractCashOut",
-      "localName": "retailCashOut",
-      "propertyInfos": [],
-      "type": "classInfo"
-    },
-    {
       "baseTypeInfo": "moysklad.abstractDemand",
       "localName": "retailDemand",
       "propertyInfos": [
@@ -4121,27 +4115,32 @@
           "name": "nonCash",
           "type": "attribute",
           "typeInfo": "Boolean"
-        },
-        {
-          "collection": true,
-          "elementName": "salesReturnRef",
-          "name": "salesReturnsUuid",
-          "type": "element",
-          "typeInfo": "IDREF",
-          "wrapperElementName": "salesReturnsUuid"
         }
       ],
+      "type": "classInfo"
+    },
+    {
+      "baseTypeInfo": "moysklad.retailDrawerCashOperation",
+      "localName": "retailDrawerCashIn",
+      "propertyInfos": [],
+      "type": "classInfo"
+    },
+    {
+      "baseTypeInfo": "moysklad.operation",
+      "localName": "retailDrawerCashOperation",
+      "propertyInfos": [],
+      "type": "classInfo"
+    },
+    {
+      "baseTypeInfo": "moysklad.retailDrawerCashOperation",
+      "localName": "retailDrawerCashOut",
+      "propertyInfos": [],
       "type": "classInfo"
     },
     {
       "baseTypeInfo": "moysklad.abstractSalesReturn",
       "localName": "retailSalesReturn",
       "propertyInfos": [
-        {
-          "name": "demandUuid",
-          "type": "attribute",
-          "typeInfo": "IDREF"
-        },
         {
           "name": "noCashSum",
           "type": "element",
@@ -4247,13 +4246,7 @@
     {
       "baseTypeInfo": "moysklad.abstractSalesReturn",
       "localName": "salesReturn",
-      "propertyInfos": [
-        {
-          "name": "demandUuid",
-          "type": "attribute",
-          "typeInfo": "IDREF"
-        }
-      ],
+      "propertyInfos": [],
       "type": "classInfo"
     },
     {

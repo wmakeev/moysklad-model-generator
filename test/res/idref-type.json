@@ -5,20 +5,28 @@
     "abstractDemand": {
         "customerOrderUuid": "customerOrder",
         "factureUuid": "factureOut",
-        "invoicesOutUuid": "invoicesOut",
+        "invoicesOutUuid": {
+            "collection": true,
+            "type": "invoiceOut"
+        },
         "paymentsUuid": {
             "collection": true,
             "type": "financeIn"
+        },
+        "salesReturnsUuid": {
+            "collection": true,
+            "type": "salesReturn"
         }
     },
     "abstractGood": {
         "buyCurrencyUuid": "currency",
         "countryUuid": "country",
         "saleCurrencyUuid": "currency",
-        "supplierUuid": "supplier",
+        "supplierUuid": "agent",
         "uomUuid": "uom"
     },
     "abstractSalesReturn": {
+        "demandUuid": "demand",
         "lossesUuid": {
             "collection": true,
             "type": "loss"
@@ -119,12 +127,6 @@
             "type": "purchaseOrder"
         }
     },
-    "demand": {
-        "salesReturnsUuid": {
-            "collection": true,
-            "type": "salesReturn"
-        }
-    },
     "demandExtension": {
         "carrierUuid": "agent"
     },
@@ -158,7 +160,7 @@
         },
         "returnsUuid": {
             "collection": true,
-            "type": "return"
+            "type": "salesReturn"
         }
     },
     "feature": {
@@ -179,7 +181,7 @@
         "purchaseReturnUuid": "purchaseReturn"
     },
     "financeOut": {
-        "commissionreportoutUuid": "commissionreportout",
+        "commissionreportoutUuid": "commissionReportOut",
         "factureInUuid": "factureIn",
         "invoiceInUuid": "invoiceIn",
         "purchaseOrderUuid": "purchaseOrder",
@@ -339,15 +341,6 @@
         },
         "supplyUuid": "supply"
     },
-    "retailDemand": {
-        "salesReturnsUuid": {
-            "collection": true,
-            "type": "salesReturn"
-        }
-    },
-    "retailSalesReturn": {
-        "demandUuid": "demand"
-    },
     "retailStore": {
         "acquireAccountUuid": "agentAccount",
         "acquireUuid": "agent",
@@ -355,9 +348,6 @@
         "myCompanyUuid": "myCompany",
         "priceTypeUuid": "priceType",
         "warehouseUuid": "warehouse"
-    },
-    "salesReturn": {
-        "demandUuid": "demand"
     },
     "slot": {
         "warehouseUuid": "warehouse"

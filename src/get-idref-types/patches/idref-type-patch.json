@@ -4,15 +4,23 @@
     },
     "abstractDemand": {
         "factureUuid": "factureOut",
-        "invoicesOutUuid": "invoicesOut",
+        "invoicesOutUuid": {
+            "collection": true,
+            "type": "invoiceOut"
+        },
         "paymentsUuid": {
             "collection": true,
             "type": "financeIn"
+        },
+        "salesReturnsUuid": {
+            "collection": true,
+            "type": "salesReturn"
         }
     },
     "abstractGood": {
         "buyCurrencyUuid": "currency",
-        "saleCurrencyUuid": "currency"
+        "saleCurrencyUuid": "currency",
+        "supplierUuid": "agent"
     },
     "abstractSalesReturn": {
         "lossesUuid": {
@@ -83,12 +91,6 @@
             "type": "purchaseOrder"
         }
     },
-    "demand": {
-        "salesReturnsUuid": {
-            "collection": true,
-            "type": "salesReturn"
-        }
-    },
     "demandExtension": {
         "carrierUuid": "agent"
     },
@@ -116,7 +118,7 @@
         },
         "returnsUuid": {
             "collection": true,
-            "type": "return"
+            "type": "salesReturn"
         }
     },
     "financeIn": {
@@ -124,6 +126,9 @@
             "collection": true,
             "type": "demand"
         }
+    },
+    "financeOut": {
+        "commissionreportoutUuid": "commissionReportOut"
     },
     "goodFolder": {
         "parentUuid": "goodFolder"
@@ -225,12 +230,6 @@
         "paymentsUuid": {
             "collection": true,
             "type": "financeIn"
-        }
-    },
-    "retailDemand": {
-        "salesReturnsUuid": {
-            "collection": true,
-            "type": "salesReturn"
         }
     },
     "retailStore": {
